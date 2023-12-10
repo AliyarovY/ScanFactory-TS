@@ -34,7 +34,7 @@ def main():
     with get_db_connection() as db:
         cursor = db.cursor()
         domains = get_domains(cursor)
-        regexp = r'\.(\w+\.\w+)$'
+        regexp = r'\w+\.\w+$'
         rules = extract_rules(domains, regexp)
         set_rules(cursor, rules)
         db.commit()
